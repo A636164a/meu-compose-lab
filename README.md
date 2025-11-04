@@ -1,14 +1,36 @@
-Ambiente Docker Compose Flask + MySQL
+# Ambiente Docker Compose Flask + MySQL
 
-Este projeto configura um ambiente completo utilizando Docker Compose para rodar uma aplicação Flask (Python) integrada a um banco de dados MySQL.
+Este projeto cria um ambiente completo utilizando **Docker Compose** para rodar uma aplicação **Flask (Python)** integrada a um banco de dados **MySQL**.
+
+---
+
+## Estrutura do projeto
+
+```
+meu-compose-lab/
+├── app.py                # Código principal do servidor Flask
+├── Dockerfile            # Define a imagem da aplicação Flask
+├── docker-compose.yml    # Define os serviços (Flask + MySQL)
+└── README.md             # Documentação do projeto
+```
 
 
-Tecnologias utilizadas
+## Como funciona
 
-Python 3
+* O **Docker Compose** cria dois containers:
 
-Flask
+  1. **flask_app** → executa o servidor Flask.
+  2. **mysql_db** → executa o banco de dados MySQL.
+* O Flask se conecta ao banco usando as variáveis de ambiente definidas no `docker-compose.yml`.
 
-MySQL
+---
 
-Docker e Docker Compose
+## Testando a conexão
+
+A rota principal `/` tenta conectar ao banco MySQL e retorna:
+
+* **Conexão OK!** — se a conexão foi bem-sucedida
+* **Erro ao conectar** — se houve algum problema (mensagem exibida na página)
+
+
+
